@@ -1,0 +1,213 @@
+/* 预留 */
+static uint32_t SD_PowerON(SD_HandleTypeDef *hsd)
+  errorstate = SDMMC_CmdAppCommand(hsd->Instance, 0);
+//  errorstate = SDMMC_CmdAppCommand(hsd->Instance, 0);
+  if(errorstate != HAL_SD_ERROR_NONE)
+  {
+    return HAL_SD_ERROR_UNSUPPORTED_FEATURE;
+  }
+
+----------------------------------------------------------------------------
+2019-12-30 V1.0e
+1. 增加4.3寸屏 GT911驱动。
+	- bsp_ts_touch.c 修改函数 void bsp_DetectLcdType(void)，增加GT911 4.3寸识别程序
+	- bsp_gt911.c 文件，增加函数 GT911_ReadMaxXY() 读取触摸板分辨率。
+
+----------------------------------------------------------------------------
+2019-03-14 V1.0d
+1. 主界面，按K1只允许切换3个页面。 因为硬件没有NOR芯片中图片。
+2. 升级若干bsp驱动文件（白永斌）
+3. 解决GT811触摸问题。 bsp_i2c_gpio.c , void i2c_SendByte(uint8_t _ucByte) 函数增加几十ns延迟
+4. 解决电阻屏触摸问题。 保存电阻触摸校准参数语句写错。
+
+----------------------------------------------------------------------------
+2019-02-13 V1.0c
+1. 增加QSPI flash驱动
+2. SD卡驱动不稳定（估计是固件库有缺陷）
+	- bsp_sdio_sd.c  
+		uint8_t BSP_SD_Init(void)
+			uSdHandle.Init.ClockDiv            = 2;		/* 高速卡可以用1，低速卡用2（用1不稳定） */
+	- stm32h7xx_hal_conf.h 	注释宏
+		//#define  USE_SD_TRANSCEIVER     	0       /*!< use uSD Transceiver */
+	- bsp_sdio_sd.h	修改宏为0
+		#ifndef USE_SD_TRANSCEIVER
+		#define USE_SD_TRANSCEIVER 0		/* 设置为0, 1的话挑卡 */
+		#endif /* USE_SD_TRANSCEIVER */
+
+----------------------------------------------------------------------------
+2018-11-26 V1.0b
+1. bsp_timer.c文件，s_tTmr赋初值0; 增加g_ucEnableSystickISR变量避免HAL提前
+   打开systick中断引起的异常。
+2. bsp_uart_fifo,c 增加串口8， UART8。
+
+----------------------------------------------------------------------------
+2018-11-13 V1.0a
+1. 调试硬件定时器函数 bsp_SetTIMforInt 通过。
+2. 调试硬件定时器函数 bsp_StartHardTimer 通过。
+3. CAN功能保留未做.
+4. RS485 MODBUS调试通过.
+
+----------------------------------------------------------------------------
+2018-11-03 V0.9a
+1. 硬件更改。PG11/DCMI_D3/ETH_RMII_TX_EN 需要跳线接通。
+2. RS485 应答未做
+3. CAN未做
+
+----------------------------------------------------------------------------
+2018-10-24 V0.8g
+1. VS1053B问题： SPI时钟只能取SPI_BAUDRATEPRESCALER_1_5625M ， 1.56M以下
+2. 陀螺仪数据跳动不正常。
+3. PS2 : 键盘功能OK。
+4. ADC DAC 示波器OK
+
+----------------------------------------------------------------------------
+2018-10-22 V0.8f
+1. 调整NAND flash片选。和扩展IO的片选对调。等待BUSY信号调整后正常。
+2. 扩展574 IO。触发方式反向时，时序最佳。地址译码器硬件更改为74HC02(或非门）
+
+----------------------------------------------------------------------------
+2018-10-18 V0.8e
+1. lwip调通。RMII GPIO要设置为LOW SPEED。
+2. GPS找不到。 已OK。 没有开启编译使能。
+3. 摄像头图像正常，退出后不能触摸。
+4. AD7606不正常
+	- AD7606_RESET 引脚一直是高电平，无法控制
+5. OLED不正常 --- 3.3V供电跳线没插。插了后OK。
+6. DS18B20 ： 正常
+7. 串口wifi ： 不正常。 已解决。没有打开串口编译。
+8. 蜂鸣器无声。原理图是PA0_TIM5_CH1控制，PCB丝印是PA8.
+	- 配置完TIM后需要执行 HAL_TIM_PWM_Start(&TimHandle, _ucChannel);
+	- 通道号不能用 1-4，这个宏 TIM_CHANNEL_1 = 0
+	- bsp_RunPer10ms()函数没有加入 BEEP_Pro();
+9. 触摸测试界面，摇杆上下不能长按连续调节。----- 已经OK
+10. RTC功能不正常。
+	- 没有初始化RTC。初始化后还有异常：读取时钟寄存器总是不变化，几十秒后又变化为正确值。
+	- 必须先读时间再读日期
+11. NAND Flash未测试.
+12. 总线扩展输出口异常。RESET,RANGE控制不正确。RANGE偶尔会动作。
+13. 陀螺仪数据跳动不正常。
+14. GPRS： 测试OK
+15. MP3 ：检测不到模块。
+
+2018-10-18 V0.8d  
+1. 摄像头调试OK.
+2. lwip 不通。
+
+----------------------------------------------------------------------------
+2018-10-14 V0.8c 
+1. 解决WM8978录音杂音问题。cache函数更改后
+//			SCB_CleanDCache_by_Addr((uint32_t *)s_PlayBuffCache + PLAY_BUFF_SIZE, PLAY_BUFF_SIZE);
+			SCB_CleanInvalidateDCache();
+
+2018-10-14 V0.8b
+1. USB Device 会挂死在此处。  HAL_Delay（）需要依赖systick中断。
+   如果该函数在USB中断中被执行，systick无法中断对计数器进行累加，导致锁死。
+	HAL_StatusTypeDef SDMMC_PowerState_ON(SDMMC_TypeDef *SDMMCx)
+	{  
+	  /* Set power state to ON */ 
+	  SDMMCx->POWER |= SDMMC_POWER_PWRCTRL;
+	  
+	  /* 1ms: required power up waiting time before starting the SD initialization 
+	  sequence */
+	  //  HAL_Delay(2);  -- USB device 例子，会挂死在此处。
+	  bsp_DelayUS(2000);
+	  return HAL_OK; 
+	}
+2. 重写 HAL_Delay() 函数，杜绝锁死问题。
+3. 增加虚拟磁盘： SDRAM磁盘。
+
+
+----------------------------------------------------------------------------
+2018-10-13	V0.8a
+1. USB磁盘，SD卡功能调通.
+2. PLL3配置，影响USB时钟、LTDC时钟，需要一起考虑。
+
+----------------------------------------------------------------------------
+2018-10-12
+1.SDIO异常问题：
+	- 变量空间必须定位在IRAM2 0X24000000， 才能正常使用DMA。这是CPU硬件限制。
+	- 临时去掉scatter文件
+
+2.U盘问题：
+	- U盘配置PLL3时钟后，串口异常死机（不断进入USART中断）
+	- 串口ISR程序最后清除所有的异常标志，解决频繁进入中断问题。之后还发现波特率不正确。
+			/* 清除中断标志 */
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_PEF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_FEF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_NEF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_OREF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_IDLEF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_TCF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_LBDF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_CTSF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_CMF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_WUF);
+			SET_BIT(_pUart->uart->ICR, UART_CLEAR_TXFECF);
+	- 串口硬件初始化结构不完全，所有成员必须初始化。bsp_SetUartParam（）函数。Prescaler成员必须设置。
+			UartHandle.Init.BaudRate   = BaudRate;
+			UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
+			UartHandle.Init.StopBits   = UART_STOPBITS_1;
+			UartHandle.Init.Parity     = Parity;
+			UartHandle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+			UartHandle.Init.Mode       = Mode;
+			UartHandle.Init.OverSampling = UART_OVERSAMPLING_16;
+			UartHandle.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+			UartHandle.Init.Prescaler = UART_PRESCALER_DIV1;
+			UartHandle.Init.FIFOMode = UART_FIFOMODE_DISABLE;
+			UartHandle.Init.TXFIFOThreshold = UART_TXFIFO_THRESHOLD_1_8;
+			UartHandle.Init.RXFIFOThreshold = UART_RXFIFO_THRESHOLD_1_8;
+			UartHandle.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+		
+----------------------------------------------------------------------------
+2018-10-12
+1. sdio 读文件异常。 
+#define ENABLE_SD_DMA_CACHE_MAINTENANCE  1
+#define SD_TIMEOUT 30 * 1000  --》 30秒超时改为2秒超时
+
+----------------------------------------------------------------------------
+2018-10-03 zhg
+1. 上电无法识别到4.3寸电容屏。原因：识别到I2C应答后，还需要延迟50ms才能读取ID.
+2. SPI驱动，只能用poll方式。DMA和中断模式都存在缺陷
+3. 显示错乱花屏问题：DM2D，填充矩形函数，高度和宽度形参取反了。
+4. 上电时，串口打印的SPI flash ID = 0。进入硬件信息界面正常。原因：bsp.c未执行 bsp_InitSFlash.
+5. 触摸屏测试界面进入后死机. 原因：PS2外部中断未处理
+6. 触摸屏界面。插入U盘无反应。
+
+----------------------------------------------------------------------------
+2018-10-02 zhg
+1. spi, tx buf 不能用内存，只能是flash
+2. 间断发送数据，不连续
+
+----------------------------------------------------------------------------
+2018-10-01 zhg
+1. UART串口驱动，增加Sending标志，UartTxEmpty()函数判断是否发送完毕
+2. bsp.c 增加 bsp_GetCpuID()函数
+
+2018-09-29 ZYC
+1.串口波特率比正常值高3-4倍，调整外部时钟由8M为25M.
+2.不停进入串口中断，置位溢出中断标志后即可。
+  SET_BIT(_pUart->uart->ICR, UART_CLEAR_OREF);
+3.串口4和串口5初始化代码写错。
+4.串口2接收发送正常，与ETH复用PA2,只允许接收。
+bsp_SetUartParam(USART2,  UART2_BAUD, UART_PARITY_NONE, UART_MODE_RX);	// UART_MODE_TX_RX
+
+2018-09-28 ZYC
+1.串口1的AF4要改成AF7.
+2.串口3的__HAL_RCC_USART3_CLK_ENABLE()
+  写成__HAL_RCC_USART1_CLK_ENABLE()，致串口3不工作。
+3.#define UART7_TX_AF    GPIO_AF11_UART7
+
+2018-09-27 ZYC
+1.HAL_Delay(1)处进入硬件错误中断，
+需要在SysTick_ISR函数中添加
+HAL_IncTick();
+2.DEVICE ID的地址改变。
+3.串口2不正常。
+
+2018-09-14 ZHG
+1.完成SPI驱动，未调
+2.完成DCMI驱动，未调
+
+2018-09-09 ZHG
+1. spi, 以太网，音频， rtc 还未弄。其他好了
+2. nand 还没改，改动较大

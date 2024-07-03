@@ -1,0 +1,16 @@
+.\objects\tapdev.o: ..\..\Libraries\uIP\dm9000\tapdev.c
+.\objects\tapdev.o: ..\..\Libraries\uIP\dm9000\Tapdev.h
+.\objects\tapdev.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\uip.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\dm9000\uip-conf.h
+.\objects\tapdev.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\tapdev.o: ..\..\User\http_uip\webserver.h
+.\objects\tapdev.o: ..\..\User\http_uip\httpd_u.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\psock.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\pt.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\lc.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\uip\lc-switch.h
+.\objects\tapdev.o: ..\..\User\http_uip\httpd-fs.h
+.\objects\tapdev.o: ..\..\Libraries\uIP\dm9000\dm9k_uip.h

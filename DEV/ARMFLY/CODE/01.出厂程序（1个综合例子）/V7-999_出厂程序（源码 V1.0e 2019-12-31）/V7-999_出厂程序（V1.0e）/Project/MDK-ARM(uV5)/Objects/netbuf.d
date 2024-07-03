@@ -1,0 +1,14 @@
+.\objects\netbuf.o: ..\..\Libraries\LwIP\src\api\netbuf.c
+.\objects\netbuf.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h
+.\objects\netbuf.o: ..\..\User\http_lwip\lwipopts.h
+.\objects\netbuf.o: ..\..\Libraries\LwIP\src\include\lwip/debug.h
+.\objects\netbuf.o: ..\..\Libraries\LwIP\src\include\lwip/arch.h
+.\objects\netbuf.o: ..\..\Libraries\LwIP\system\arch/cc.h
+.\objects\netbuf.o: ..\..\Libraries\LwIP\system\arch/cpu.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\netbuf.o: D:\Keil5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\netbuf.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h

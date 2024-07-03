@@ -1,0 +1,15 @@
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\uiplib.c
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\uip.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\dm9000\uip-conf.h
+.\objects\uiplib.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\uiplib.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uiplib.o: ..\..\User\http_uip\webserver.h
+.\objects\uiplib.o: ..\..\User\http_uip\httpd_u.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\psock.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\pt.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\lc.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\lc-switch.h
+.\objects\uiplib.o: ..\..\User\http_uip\httpd-fs.h
+.\objects\uiplib.o: ..\..\Libraries\uIP\uip\uiplib.h
