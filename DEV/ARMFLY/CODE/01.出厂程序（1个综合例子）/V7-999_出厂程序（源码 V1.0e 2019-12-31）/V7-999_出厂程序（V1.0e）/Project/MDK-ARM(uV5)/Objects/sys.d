@@ -1,0 +1,15 @@
+.\objects\sys.o: ..\..\Libraries\LwIP\src\core\sys.c
+.\objects\sys.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h
+.\objects\sys.o: ..\..\User\http_lwip\lwipopts.h
+.\objects\sys.o: ..\..\Libraries\LwIP\src\include\lwip/debug.h
+.\objects\sys.o: ..\..\Libraries\LwIP\src\include\lwip/arch.h
+.\objects\sys.o: ..\..\Libraries\LwIP\system\arch/cc.h
+.\objects\sys.o: ..\..\Libraries\LwIP\system\arch/cpu.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\sys.o: D:\Keil5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\sys.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h
+.\objects\sys.o: ..\..\Libraries\LwIP\src\include\lwip/sys.h

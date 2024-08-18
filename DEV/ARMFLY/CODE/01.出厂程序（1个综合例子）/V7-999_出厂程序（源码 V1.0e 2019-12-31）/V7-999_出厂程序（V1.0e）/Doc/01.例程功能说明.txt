@@ -1,0 +1,8 @@
+
+V7-999_出厂程序
+
+1. IDE开发环境： KEIL MDK 5.26 、 IAR ARM 8.3
+2. 无操作系统，裸机程序
+3. 无第3方GUI，安富莱原创的LCD底层驱动
+4. 目标文件在： project\output(mdk).hex
+5. 缺省仿真器是ST-LINK SW模式（不是JTAG模式）。 如果你用的J-Link，需要修改工程配置选择正确的仿真器。

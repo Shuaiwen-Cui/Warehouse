@@ -1,0 +1,14 @@
+.\objects\sockets.o: ..\..\Libraries\LwIP\src\api\sockets.c
+.\objects\sockets.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h
+.\objects\sockets.o: ..\..\User\http_lwip\lwipopts.h
+.\objects\sockets.o: ..\..\Libraries\LwIP\src\include\lwip/debug.h
+.\objects\sockets.o: ..\..\Libraries\LwIP\src\include\lwip/arch.h
+.\objects\sockets.o: ..\..\Libraries\LwIP\system\arch/cc.h
+.\objects\sockets.o: ..\..\Libraries\LwIP\system\arch/cpu.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\sockets.o: D:\Keil5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\sockets.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h

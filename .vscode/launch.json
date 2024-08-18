@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "e:/DEV/EMBEDFIRE/48-MDK编译过程及文件全解/SCT文件应用/2.优先使用内部SRAM并把堆分配到SDRAM空间/User/sdram",
+      "program": "e:/DEV/EMBEDFIRE/48-MDK编译过程及文件全解/SCT文件应用/2.优先使用内部SRAM并把堆分配到SDRAM空间/User/sdram/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

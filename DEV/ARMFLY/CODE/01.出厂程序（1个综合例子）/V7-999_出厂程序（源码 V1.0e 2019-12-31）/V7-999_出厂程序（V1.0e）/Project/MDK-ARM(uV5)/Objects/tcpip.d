@@ -1,0 +1,14 @@
+.\objects\tcpip.o: ..\..\Libraries\LwIP\src\api\tcpip.c
+.\objects\tcpip.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h
+.\objects\tcpip.o: ..\..\User\http_lwip\lwipopts.h
+.\objects\tcpip.o: ..\..\Libraries\LwIP\src\include\lwip/debug.h
+.\objects\tcpip.o: ..\..\Libraries\LwIP\src\include\lwip/arch.h
+.\objects\tcpip.o: ..\..\Libraries\LwIP\system\arch/cc.h
+.\objects\tcpip.o: ..\..\Libraries\LwIP\system\arch/cpu.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\tcpip.o: D:\Keil5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\tcpip.o: ..\..\Libraries\LwIP\src\include\lwip/opt.h

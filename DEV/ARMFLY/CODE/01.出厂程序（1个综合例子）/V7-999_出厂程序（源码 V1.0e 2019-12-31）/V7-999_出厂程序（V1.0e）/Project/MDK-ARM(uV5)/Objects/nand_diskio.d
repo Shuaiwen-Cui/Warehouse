@@ -1,0 +1,11 @@
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\drivers\nand_diskio.c
+.\objects\nand_diskio.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\ff_gen_drv.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\diskio.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\integer.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\ff.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\ffconf.h
+.\objects\nand_diskio.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\nand_diskio.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\nand_diskio.o: ..\..\Libraries\FatFs\src\drivers\nand_diskio.h
+.\objects\nand_diskio.o: ..\..\User\bsp\inc\bsp_fmc_nand_flash.h

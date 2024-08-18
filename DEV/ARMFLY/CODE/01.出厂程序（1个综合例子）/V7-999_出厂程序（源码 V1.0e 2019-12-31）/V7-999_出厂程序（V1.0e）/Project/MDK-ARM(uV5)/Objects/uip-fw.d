@@ -1,0 +1,17 @@
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uip-fw.c
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uip.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\dm9000\uip-conf.h
+.\objects\uip-fw.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\uip-fw.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uip-fw.o: ..\..\User\http_uip\webserver.h
+.\objects\uip-fw.o: ..\..\User\http_uip\httpd_u.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\psock.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\pt.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\lc.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\lc-switch.h
+.\objects\uip-fw.o: ..\..\User\http_uip\httpd-fs.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uip_arch.h
+.\objects\uip-fw.o: ..\..\Libraries\uIP\uip\uip-fw.h
+.\objects\uip-fw.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h

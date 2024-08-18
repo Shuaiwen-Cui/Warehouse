@@ -1,0 +1,17 @@
+.\objects\httpd-cgi.o: ..\..\User\http_uip\httpd-cgi.c
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\uip.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\dm9000\uip-conf.h
+.\objects\httpd-cgi.o: D:\Keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\httpd-cgi.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\httpd-cgi.o: ..\..\User\http_uip\webserver.h
+.\objects\httpd-cgi.o: ..\..\User\http_uip\httpd_u.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\psock.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\uipopt.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\pt.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\lc.h
+.\objects\httpd-cgi.o: ..\..\Libraries\uIP\uip\lc-switch.h
+.\objects\httpd-cgi.o: ..\..\User\http_uip\httpd-fs.h
+.\objects\httpd-cgi.o: ..\..\User\http_uip\httpd-cgi.h
+.\objects\httpd-cgi.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\httpd-cgi.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
